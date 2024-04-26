@@ -1,14 +1,6 @@
 import {Link, NavLink} from "react-router-dom";
-import useAuth from "../../hooks/useAuth/useAuth";
-import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const {user, logOut} = useAuth();
-
-  const handleLogOut = () => {
-    logOut().then(Swal.fire("User Deleted Successfully!")).catch();
-  };
-
   const navLinks = (
     <>
       <li>
@@ -22,17 +14,17 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({isActive}) => (isActive ? "bg-red-500 text-white" : "")}
-          to="/allTouristsSpot,"
+          to="/addTouristsSpot"
         >
-          All Tourists Spot
+          Add Tourists Spot
         </NavLink>
       </li>
       <li>
         <NavLink
           className={({isActive}) => (isActive ? "bg-red-500 text-white" : "")}
-          to="/addTouristsSpot"
+          to="/allTouristsSpot"
         >
-          Add Tourists Spot
+          All Tourists Spot
         </NavLink>
       </li>
       <li>
@@ -79,25 +71,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? (
-          <div className="hidden md:flex lg:flex">
-            <img className="size-10 rounded-full mr-2" src={user?.photoURL} />
-            <p className="mx-2 p-2 rounded">{user?.displayName}</p>
-            <p className="mx-2 p-2 rounded">{user?.email}</p>
-            <button
-              onClick={handleLogOut}
-              className="bg-red-500 px-2 py-1 rounded-lg text-white"
-            >
-              Logout
-            </button>
-          </div>
-        ) : (
-          <Link to="/login">
-            <button className="bg-red-500 px-2 py-1 rounded-lg text-white">
-              Login
-            </button>
-          </Link>
-        )}
+        <Link to="/login">
+          <button className="bg-red-500 px-2 py-1 rounded-lg text-white">
+            Login
+          </button>
+        </Link>
       </div>
     </div>
   );
