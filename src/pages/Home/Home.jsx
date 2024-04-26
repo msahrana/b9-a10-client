@@ -6,10 +6,9 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 const Home = () => {
   return (
     <div>
-      <h2>home page here </h2>
       <Slider></Slider>
-      <TouristsSpots></TouristsSpots>
       <CountriesSection></CountriesSection>
+      <TouristsSpots></TouristsSpots>
       <WhyChooseUs></WhyChooseUs>
     </div>
   );
