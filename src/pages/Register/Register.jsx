@@ -108,7 +108,7 @@ const Register = () => {
             Email
           </label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="Your Email Here"
