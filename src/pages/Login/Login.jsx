@@ -52,9 +52,11 @@ const Login = () => {
             id="email"
             placeholder="Your Email Here"
             className="w-full px-4 py-3 rounded-md border"
-            {...register("exampleRequired", {required: true})}
+            {...register("email", {required: true})}
           />
-          {errors.exampleRequired && <span>This field is required</span>}
+          {errors.email && (
+            <span className="text-red-500">Email is required</span>
+          )}
         </div>
         <div className="space-y-1 text-sm">
           <label htmlFor="password" className="block">
@@ -66,9 +68,11 @@ const Login = () => {
             id="password"
             placeholder="Password"
             className="w-full px-4 py-3 rounded-md border"
-            {...register("exampleRequired", {required: true})}
+            {...register("password", {required: true})}
           />
-          {errors.exampleRequired && <span>This field is required</span>}
+          {errors.password && (
+            <span className="text-red-500">Password is required</span>
+          )}
         </div>
         <button className="block w-full p-3 text-center rounded-sm bg-orange-500 text-xl">
           Login

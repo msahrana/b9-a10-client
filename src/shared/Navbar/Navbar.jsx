@@ -1,6 +1,16 @@
 import {Link, NavLink} from "react-router-dom";
+import useAuth from "../../hooks/useAuth/useAuth";
+import Swal from "sweetalert2";
+import {Tooltip} from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
+  const {user, logOut} = useAuth();
+
+  const handleLogOut = () => {
+    logOut().then(Swal.fire("User Deleted Successfully!")).catch();
+  };
+
   const navLinks = (
     <>
       <li>
@@ -73,11 +83,30 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="bg-red-500 px-2 py-1 rounded-lg text-white">
-            Login
-          </button>
-        </Link>
+        {user ? (
+          <div className="hidden md:flex lg:flex">
+            <a id="my-anchor-element-id">
+              <img className="size-10 rounded-full mr-2" src={user?.photoURL} />
+            </a>
+            <Tooltip
+              anchorSelect="#my-anchor-element-id"
+              content={user?.displayName}
+              data-tooltip-place="top"
+            />
+            <button
+              onClick={handleLogOut}
+              className="bg-red-500 px-2 py-1 rounded-lg text-white"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <Link to="/login">
+            <button className="bg-red-500 px-2 py-1 rounded-lg text-white">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
