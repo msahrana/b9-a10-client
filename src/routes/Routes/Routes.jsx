@@ -7,6 +7,7 @@ import AddTouristsSpot from "../../pages/AddTouristsSpot/AddTouristsSpot";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import MyList from "../../pages/MyList/MyList";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -19,16 +20,25 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/addTouristsSpot",
+        element: (
+          <PrivateRoute>
+            <AddTouristsSpot></AddTouristsSpot>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/allTouristsSpot",
         element: <AllTouristsSpot></AllTouristsSpot>,
       },
       {
-        path: "/addTouristsSpot",
-        element: <AddTouristsSpot></AddTouristsSpot>,
-      },
-      {
         path: "/myList",
-        element: <MyList></MyList>,
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/spot"),
       },
       {
         path: "/login",
