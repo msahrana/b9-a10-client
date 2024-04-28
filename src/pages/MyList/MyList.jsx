@@ -1,12 +1,20 @@
-import {useLoaderData} from "react-router-dom";
+import {useEffect, useState} from "react";
+import useAuth from "../../hooks/useAuth/useAuth";
 
 const MyList = () => {
-  const spots = useLoaderData();
+  const {user} = useAuth() || {};
+  const [spots, setSpots] = useState([]);
 
-  // const {name, country, location, visitors} = spots || {};
+  useEffect(() => {
+    fetch(`http://localhost:5000/spot/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSpots(data);
+      });
+  }, [user]);
 
   return (
-    <div>
+    <div className="min-h-[calc(100vh-373px)]">
       <div>
         <h1 className="text-5xl font-bold my-8 text-center">
           My Total List: {spots.length}

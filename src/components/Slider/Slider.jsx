@@ -14,7 +14,7 @@ const Slider = () => {
       <Swiper
         navigation={true}
         modules={[Autoplay, Navigation]}
-        className="h-[680px] rounded mt-8"
+        className="lg:h-[680px] rounded mt-8"
         loop={true}
         autoplay={{
           delay: 2000,

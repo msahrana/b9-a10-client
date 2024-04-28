@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth/useAuth";
 
 const AddTouristsSpot = () => {
+  const {user} = useAuth();
+
   const handleAddPlace = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -117,10 +120,10 @@ const AddTouristsSpot = () => {
           <div className="flex flex-col lg:flex-row lg:mb-6">
             <label className="form-control w-full lg:w-1/2">
               <div className="label">
-                <span className="text-xl">Average Cost:</span>
+                <span className="text-xl">Average Cost:(tk)</span>
               </div>
               <input
-                type="text"
+                type="number"
                 placeholder="Average Cost"
                 name="cost"
                 className="input input-bordered w-full"
@@ -129,10 +132,10 @@ const AddTouristsSpot = () => {
             </label>
             <label className="form-control w-full lg:w-1/2 lg:ml-5">
               <div className="label">
-                <span className="text-xl">Travel Time:</span>
+                <span className="text-xl">Travel Time:(days)</span>
               </div>
               <input
-                type="text"
+                type="number"
                 placeholder="Travel Time"
                 name="time"
                 className="input input-bordered w-full"
@@ -144,10 +147,10 @@ const AddTouristsSpot = () => {
           <div className="flex flex-col lg:flex-row lg:mb-6">
             <label className="form-control w-full lg:w-1/2">
               <div className="label">
-                <span className="text-xl">Total Visitors PerYear:</span>
+                <span className="text-xl">Total Visitors Per Year:</span>
               </div>
               <input
-                type="text"
+                type="number"
                 placeholder="Total Visitors PerYear"
                 name="visitors"
                 className="input input-bordered w-full"
@@ -156,7 +159,7 @@ const AddTouristsSpot = () => {
             </label>
             <label className="form-control w-full lg:w-1/2 lg:ml-5">
               <div className="label">
-                <span className="text-xl">Seasonality:</span>
+                <span className="text-xl">Seasonality:(summer or winter)</span>
               </div>
               <input
                 type="text"
@@ -177,8 +180,9 @@ const AddTouristsSpot = () => {
                 type="email"
                 placeholder="User Email"
                 name="email"
+                value={user?.email}
+                disabled
                 className="input input-bordered w-full"
-                required
               />
             </label>
             <label className="form-control w-full lg:w-1/2 lg:ml-5">

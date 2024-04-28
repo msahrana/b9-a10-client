@@ -8,6 +8,7 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import MyList from "../../pages/MyList/MyList";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DetailsPage from "../../components/DetailsPage/DetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,6 @@ export const router = createBrowserRouter([
             <MyList></MyList>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/spot"),
       },
       {
         path: "/login",
@@ -47,6 +47,14 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <DetailsPage></DetailsPage>
+          </PrivateRoute>
+        ),
       },
     ],
   },
