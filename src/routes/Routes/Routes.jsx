@@ -9,6 +9,8 @@ import Register from "../../pages/Register/Register";
 import MyList from "../../pages/MyList/MyList";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DetailsPage from "../../components/DetailsPage/DetailsPage";
+import UpdateSpot from "../../components/UpdateSpot/UpdateSpot";
+import CountryList from "../../components/CountryList/CountryList";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +57,18 @@ export const router = createBrowserRouter([
             <DetailsPage></DetailsPage>
           </PrivateRoute>
         ),
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/singleSpot/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateSpot></UpdateSpot>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/singleSpot/${params.id}`),
+      },
+      {
+        path: "/countryList",
+        element: <CountryList></CountryList>,
       },
     ],
   },

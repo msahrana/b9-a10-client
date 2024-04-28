@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import useAuth from "../../hooks/useAuth/useAuth";
+import {Link} from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const {user} = useAuth() || {};
@@ -12,6 +14,39 @@ const MyList = () => {
         setSpots(data);
       });
   }, [user]);
+
+  const {_id} = spots || {};
+
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/spot/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "This Spot has been deleted.",
+                icon: "success",
+              });
+              const remaining = spots.filter((spot) => spot._id !== _id);
+              setSpots(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="min-h-[calc(100vh-373px)]">
@@ -63,13 +98,18 @@ const MyList = () => {
                   <td className="p-3 text-start">
                     <p>{spot.visitors}</p>
                   </td>
-                  <td className="p-3 text-right">
-                    <button className="bg-orange-500 px-4 py-0 text-base rounded-xl">
-                      Update
-                    </button>
+                  <td className="">
+                    <Link to={`/update/${spot._id}`}>
+                      <button className="bg-orange-500 px-4 py-2 text-base rounded-xl">
+                        Update
+                      </button>
+                    </Link>
                   </td>
                   <td className="p-3 text-right">
-                    <button className="bg-red-500 px-4 py-0 text-base rounded-xl">
+                    <button
+                      onClick={() => handleDelete(_id)}
+                      className="bg-red-500 px-4 py-2 text-base rounded-xl"
+                    >
                       Delete
                     </button>
                   </td>
