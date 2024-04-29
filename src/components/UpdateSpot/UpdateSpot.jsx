@@ -46,7 +46,7 @@ const UpdateSpot = () => {
       username,
       photoURL,
     };
-    fetch(`http://localhost:5000/singleSpot/${_id}`, {
+    fetch(`https://b9-a10-server-blush.vercel.app/singleSpot/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

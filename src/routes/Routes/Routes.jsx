@@ -58,13 +58,17 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/singleSpot/${params.id}`),
+          fetch(
+            `https://b9-a10-server-blush.vercel.app/singleSpot/${params.id}`
+          ),
       },
       {
         path: "/update/:id",
         element: <UpdateSpot></UpdateSpot>,
         loader: ({params}) =>
-          fetch(`http://localhost:5000/singleSpot/${params.id}`),
+          fetch(
+            `https://b9-a10-server-blush.vercel.app/singleSpot/${params.id}`
+          ),
       },
       {
         path: "/countryList/:country",

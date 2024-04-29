@@ -7,7 +7,7 @@ const CountryList = () => {
   const {country: countryName} = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:5000/spot")
+    fetch("https://b9-a10-server-blush.vercel.app/spot")
       .then((res) => res.json())
       .then((data) => {
         const filter = data.filter((c) => c.country === countryName);

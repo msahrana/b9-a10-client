@@ -37,7 +37,7 @@ const Register = () => {
       .then((result) => {
         /* for server */
         const newUser = {name, photoURL, email, password};
-        fetch("http://localhost:5000/user", {
+        fetch("https://b9-a10-server-blush.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

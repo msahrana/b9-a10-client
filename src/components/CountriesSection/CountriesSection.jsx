@@ -6,7 +6,7 @@ const CountriesSection = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/country")
+    fetch("https://b9-a10-server-blush.vercel.app/country")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
