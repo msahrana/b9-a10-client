@@ -4,9 +4,8 @@ import {FaPersonWalkingLuggage} from "react-icons/fa6";
 
 const WhyChooseUs = () => {
   return (
-    <div>
-      <div className="divider"></div>
-      <h1 className="text-4xl font-bold text-center my-10 uppercase">
+    <div className="bg-blue-100">
+      <h1 className="text-4xl font-bold text-center py-10 uppercase">
         Why Us?
       </h1>
       <div className="flex flex-col md:flex-col lg:flex-row gap-6 p-2">

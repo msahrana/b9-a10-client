@@ -1,8 +1,7 @@
 const Testimonials = () => {
   return (
-    <div>
-      <div className="divider"></div>
-      <h1 className="text-5xl font-bold text-center my-6">Customers Review</h1>
+    <div className="bg-red-50">
+      <h1 className="text-5xl font-bold text-center py-6">Customers Review</h1>
       <div className="flex flex-col md:flex-col lg:flex-row gap-6">
         <div>
           <p className="text-justify p-4">

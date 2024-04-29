@@ -27,7 +27,7 @@ const AllTouristsSpot = () => {
           className="text-5xl font-bold text-center uppercase mb-0"
           style={{paddingTop: "5rem", margin: "auto 4", fontWeight: "normal"}}
         >
-          <span style={{color: "black", fontWeight: "bold"}}>
+          <span style={{color: "red", fontWeight: "bold"}}>
             {/* Style will be inherited from the parent element */}
             <Typewriter
               words={["All Tourists Spots Here:"]}
@@ -41,6 +41,11 @@ const AllTouristsSpot = () => {
             />
           </span>
         </h1>
+      </div>
+      <div className="text-center my-6">
+        <button className="bg-green-600 px-3 py-1 rounded-xl text-xl text-white">
+          Sorted By Cost
+        </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {items.map((spot) => (

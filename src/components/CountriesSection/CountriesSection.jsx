@@ -25,8 +25,7 @@ const CountriesSection = () => {
           className="text-5xl font-bold text-center uppercase mb-16"
           style={{paddingTop: "5rem", margin: "auto 8", fontWeight: "normal"}}
         >
-          <span style={{color: "black", fontWeight: "bold"}}>
-            {/* Style will be inherited from the parent element */}
+          <span style={{color: "red", fontWeight: "bold"}}>
             <Typewriter
               words={["All Over South Asia"]}
               loop={""}

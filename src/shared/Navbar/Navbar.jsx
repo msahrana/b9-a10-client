@@ -3,9 +3,25 @@ import useAuth from "../../hooks/useAuth/useAuth";
 import Swal from "sweetalert2";
 import {Tooltip} from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import {useEffect, useState} from "react";
 
 const Navbar = () => {
   const {user, logOut} = useAuth();
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+
+  const handleToggleTheme = (event) => {
+    if (event.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
   const handleLogOut = () => {
     logOut().then(Swal.fire("User Deleted Successfully!")).catch();
@@ -110,6 +126,7 @@ const Navbar = () => {
         {/* theme */}
         <label className="cursor-pointer grid place-items-center">
           <input
+            onChange={handleToggleTheme}
             type="checkbox"
             value="synthwave"
             className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"

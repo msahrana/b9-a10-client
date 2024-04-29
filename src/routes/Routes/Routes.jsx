@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/singleSpot/${params.id}`),
       },
       {
-        path: "/countryList",
+        path: "/countryList/:country",
         element: <CountryList></CountryList>,
       },
     ],

@@ -99,7 +99,7 @@ const MyList = () => {
                   </td>
                   <td className="">
                     <Link to={`/update/${spot._id}`}>
-                      <button className="bg-orange-500 px-4 py-2 text-base rounded-xl">
+                      <button className="bg-orange-500 px-4 py-2 text-base rounded-xl text-white">
                         Update
                       </button>
                     </Link>
@@ -107,7 +107,7 @@ const MyList = () => {
                   <td className="p-3 text-right">
                     <button
                       onClick={() => handleDelete(spot._id)}
-                      className="bg-red-500 px-4 py-2 text-base rounded-xl"
+                      className="bg-red-500 px-4 py-2 text-base rounded-xl text-white"
                     >
                       Delete
                     </button>
