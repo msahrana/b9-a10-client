@@ -15,9 +15,8 @@ const MyList = () => {
       });
   }, [user]);
 
-  const {_id} = spots || {};
-
   const handleDelete = (_id) => {
+    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -107,7 +106,7 @@ const MyList = () => {
                   </td>
                   <td className="p-3 text-right">
                     <button
-                      onClick={() => handleDelete(_id)}
+                      onClick={() => handleDelete(spot._id)}
                       className="bg-red-500 px-4 py-2 text-base rounded-xl"
                     >
                       Delete
