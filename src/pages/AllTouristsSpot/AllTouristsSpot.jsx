@@ -1,12 +1,15 @@
 import {useEffect, useState} from "react";
-import useAuth from "../../hooks/useAuth/useAuth";
 import AllTouristsSpotCard from "./AllTouristsSpotCard";
 import {Typewriter} from "react-simple-typewriter";
 
 const AllTouristsSpot = () => {
-  const {user} = useAuth() || {};
-
   const [items, setItems] = useState([]);
+
+  const sortByCost = () => {
+    const content = [...items];
+    const sorted = content.sort((a, b) => parseInt(a.cost) - parseInt(b.cost));
+    setItems(sorted);
+  };
 
   useEffect(() => {
     fetch("http://localhost:5000/spot")
@@ -14,7 +17,7 @@ const AllTouristsSpot = () => {
       .then((data) => {
         setItems(data);
       });
-  }, [user]);
+  }, []);
 
   const handleDone = () => {
     console.log(`Done after 5 loops!`);
@@ -28,7 +31,6 @@ const AllTouristsSpot = () => {
           style={{paddingTop: "5rem", margin: "auto 4", fontWeight: "normal"}}
         >
           <span style={{color: "red", fontWeight: "bold"}}>
-            {/* Style will be inherited from the parent element */}
             <Typewriter
               words={["All Tourists Spots Here:"]}
               loop={" "}
@@ -43,7 +45,10 @@ const AllTouristsSpot = () => {
         </h1>
       </div>
       <div className="text-center my-6">
-        <button className="bg-green-600 px-3 py-1 rounded-xl text-xl text-white">
+        <button
+          onClick={sortByCost}
+          className="bg-green-600 px-3 py-1 rounded-xl text-xl text-white"
+        >
           Sorted By Cost
         </button>
       </div>
