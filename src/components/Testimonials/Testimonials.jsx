@@ -13,7 +13,7 @@ const Testimonials = () => {
             understanding the intricate dynamics of the tourism industry.
           </p>
           <p className="pr-16 text-right mb-6">
-            <small>Sarah from London</small>
+            <small>Sarah Ali from London</small>
           </p>
         </div>
         <div>
