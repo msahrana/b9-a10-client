@@ -12,7 +12,7 @@ Bullet Point:
 
 - Add Tourist Spot & My List: Add tourist spot section you will add any spot collection under South Asia. When you add a spot button then all data are saved to the MongoDB database. In my list section, you can see all the information on the cards to which you are added. Here you can update or delete any data from the database.
 
-npm package:
+Technology:
 
 1. [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)
 2. [React Tooltip](https://react-tooltip.com/)
