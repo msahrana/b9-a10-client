@@ -1,17 +1,16 @@
 Site Name: Rana Tourism Economics
 Site URL:https://b9-a10-4a8d1.web.app
 
+Project Overview: 
+It is a tourist site. Here, a tourist can select their visit place and date properly. If any person can clone it, then 1st case he clones it and git push to his own GitHub repo.
+
 Bullet Point:
 
-- Home page: Home pages has a navbar country section, card section, why us and review section. In country section has six country cards. Each card contain image, country name and short description. If you click any point of card, it redirect to country wise section there all card are shown by all card who are added.
+- Home page: The page has a navbar country section, card section, why us, and review section. In country section has six country cards. Each card contains an image, a country name, and a short description. 
 
-- Login Page: Here contain a login page. Also you can login different social login such as google, github etc.
+- All Tourist Spot: All Tourist Spot page, you can see all cards that are loaded from the database. Here is a sort-by button. If you click the sort by button then all data are shown in ascending. But it will be a private route. 
 
-- Register Page: In register page you can sign up by name, photoURL, email and password. Password must be eight character, one upper case, one lower case and one special character.
-
-- All Tourist Spot: All Tourist Spot page, you can see all card whose are loaded from database. Here contain a sort by button. If you click sort by button then all data are shown by ascending. But it will be private route. If you cre login then you can see it. If you are not login, then the page redirect in login page.
-
-- Add Tourist Spot & My List: Add tourist spot section you will add any spot collection under south asia. When you add spot button then all data are saved to mongoDb database. In my list section you can see all information of card whose you are added. Here you can update or delete any data from database.
+- Add Tourist Spot & My List: Add tourist spot section you will add any spot collection under South Asia. When you add a spot button then all data are saved to the MongoDB database. In my list section, you can see all the information on the cards to which you are added. Here you can update or delete any data from the database.
 
 npm package:
 
